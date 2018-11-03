@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <style>
+    @font-face { font-family: 'NapjakBlock'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NapjakBlock.woff') format('woff'); font-weight: normal; font-style: normal; }
+    body{
+      background-color: rgb(248,240,216);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      font-family: 'NapjakBlock'
+    }
+    .field {
+      text-align:center
+    }
+    </style>
+  </head>
+  
+<body>
+  <p><br> <br></p>
+<h2>Sign up</h2>
+<p><br></p>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+  
+  <div class="field">
+    <%= f.label :이름 %><br />
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :닉네임 %><br />
+    <%= f.text_field :nickname %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :대학교 %><br />
+    <%= f.text_field :university %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :주량 %><br />
+    <%= f.number_field :capacity %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+  <p><br></p>
+<div style="text-align:center">
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+</div>
+<p><br></p>
+<%= render "devise/shared/links" %>
+</body>

@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<style>
+		@font-face { font-family: 'SDKukdetopokki'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SDKukdetopokki.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+		body{
+			background-color: rgb(248,240,216);  
+			display: flex;
+	    flex-direction: column;
+	    justify-content: space-around;
+	    align-items: center;
+		  font-family: 'SDKukdetopokki'
+		}
+		h1{
+		    margin-left: -600px;
+		}
+	.logo_home{
+  margin-top:0px;
+  margin-left: 350px;
+  position: absolute;
+  width: 150px;
+}
+        .btn{
+            margin-left: 20px;
+        }
+		</style>
+	</head>
+	<body>
+	        <a href="/home/index"><%=image_tag"logo_home.png" ,class:"logo_home"%></a> 
+
+   
+</div>
+		<h1><br>예쁘게 수정해줘 히히!<br><Br></h1><br>
+		<a href="/home/calender">그냥 안할래</a>
+    <form action="/home/update/<%= @post.id %>" method="post">
+        날짜  <input type="string" name="date" style="width:300px; height:50px;" value="월 / 일 / 요일"><br><br>
+        제목  <input type="string" name="title" style="width:1000px; height:50px;"><br><br>
+        내용  <input type="text" name="content" style="width:1000px; height:500px;"><br><br>
+        <div class="btn">
+        <input type="submit" value="저장"><br><br><br>
+        </div>
+    </form>
+	</body>
+</html>
+

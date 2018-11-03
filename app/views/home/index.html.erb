@@ -1,0 +1,194 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset lang="ko">
+
+    <style>
+        @font-face { font-family: 'YunTaemin'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/YunTaemin.woff') format('woff'); font-weight: normal; font-style: normal; } 
+        @font-face { font-family: 'HSGyoulnoonkot'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/HSGyoulnoonkot.woff') format('woff'); font-weight: normal; font-style: normal; }
+        @font-face { font-family: 'godoMaum'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/godoMaum.woff') format('woff'); font-weight: normal; font-style: normal; }
+        @font-face { font-family: 'SDKukdetopokki'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SDKukdetopokki.woff') format('woff'); font-weight: normal; font-style: normal; }
+      body{
+        
+        background-color: rgb(248,240,216);
+        margin-right: 15%;
+        min-width: 100px;
+      }
+      .toon{
+        font-family: 'godoMaum';
+        font-size: 30pt;
+      }
+         .nav-link{
+           background-color: #f8f0d8;
+            text-align:center;
+           width: 400px;
+           padding-top: 17px;
+            padding-bottom: 17px;           
+           color: black;
+           font-family: 'YunTaemin';
+           /*font-family: 'HSGyoulnoonkot'*/
+           font-size: 60px;
+         }
+         .nav-link:hover{
+           background-color: #edeae6;
+           color: black;
+         }
+      .logo{
+        margin-top: 100px;
+        margin-left: 30px;
+        position:absolute;
+      }
+      .logo2{
+        float: right;
+        height: 30px;
+        width: 260px;
+      }
+  
+      .text_bot{
+        color:gray;
+        position: fixed;
+        margin-top: 640px;
+        margin-left: 50px;
+      }
+      .row{
+        /*margin-top:30px;*/
+        display: none;
+      }
+      .toon{
+        position: absolute;
+        margin-left: 700px;
+        margin-top: 50px; 
+        width: 100%;
+        height: 100%;
+      }
+      .toon1{
+          position:relative;
+          margin-left: 300px;
+      }
+  
+      .toon_1{
+        position:relative;
+        height: 180px;
+  
+      }
+      .toon2{
+          position:relative;
+          margin-left: 500px;
+          margin-top: 70px;
+          display: none;
+      }
+  
+      .toon_2{
+        position:relative;
+        height: 180px;
+  
+      }
+      .toon3{
+          position:relative;
+          margin-left: 00px;
+          margin-top: -300px;
+          display: none;
+      }
+  
+      .toon_3{
+        position:relative;
+        height: 180px;
+  
+      }
+      .logout{
+          position:fixed;
+          top: 3%;
+          right: 5%;
+      }
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $(".logo").click(function(){
+         $(".logo").animate({left: '500px'});
+         $(".row").fadeIn(1000);
+         $(".toon").fadeOut(000);
+      });
+      $(".toon1").click(function(){
+         $(".toon2").fadeIn(1000);
+      });
+      $(".toon2").click(function(){
+         $(".toon3").fadeIn(1000);
+      });
+    });
+    </script>
+
+    
+
+  </head>
+
+
+  <body>
+
+       <%=image_tag"drunken-logo.png" ,class:"logo"%>
+     
+             <div class="text_bot">
+        <p>
+          Alkohol Real Rice Thief
+          <!--적당한 음주는몸에 이롭습니다 좋은 코딩은 좋은 아이디어에서나오고 아이디어는 술에서나옵니다 -->
+          <!--멋쟁이 사자탈을 쓴 술쟁이 사자들을 위한 곳에 오신걸 환영합니다 당신의 주량을 마음껏 펼쳐보세요-->
+          <!--<br>성공회대정해인 김승래  /  동국대송중기 장성원  /  국민대승리 최승호  /  경기대아이린 황진선  /  시립대박나래 신민정 이가 만듬 6팀 짱짱 화이팅-->
+        </p>
+      </div>
+      <div class="row">
+         <div class="col-3">
+           <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <a class="nav-link" id="v-pills-home-tab" href="/home/index">Home</a>
+          <% if user_signed_in? %>
+          <% else %>
+            <a class="nav-link" id="v-pills-profile-tab"  href="/users/sign_in" >Login</a>
+          <% end %>
+          <a class="nav-link" id="v-pills-messages-tab" href="/home/calender">Schedule</a>
+          <a class="nav-link" id="v-pills-settings-tab" href="/home/gallary" >Gallry</a>
+          <a class="nav-link" id="v-pills-settings-tab" href="https://uni.likelion.org/users/sign_in" >Likelion</a>
+         </div>
+     </div>
+   </div>
+  <div class="toon">
+     <div class="toon1">
+       <%=image_tag"drunken_1.png" ,class:"toon_1"%>
+          <p>딱 한잔만...?</p>
+       </div>
+       <div class="toon2">
+         <%=image_tag"drunken_2.png" ,class:"toon_2"%>
+  
+           <p>히히 치한다...!</p>
+      </div>
+      <div class="toon3">
+         <%=image_tag"drunken_3.png" ,class:"toon_3"%>
+         <p>다신술안마신다...</p>
+      </div>
+    </div>
+
+
+
+  </body>
+</html>
+    <div class = "logout">
+      <a href ="/home/index"><%=image_tag"lionlogo.png" ,class:"logo2"%></a>
+      <ul class="right hide-on-med-and-down">
+        <% if user_signed_in? %>
+          
+          <li style = "list-style-type : none; float:right; margin-top: 5px; font-family: SDKukdetopokki"><%= current_user.name %>님 환영합니다.</li><br>
+          <li style = "list-style-type : none; float:right; font-family: SDKukdetopokki; margin-left:30px;"><%= link_to '로그아웃　', destroy_user_session_path, method: 'delete' %></li>
+          <li style = "list-style-type : none; float:right; font-family: SDKukdetopokki"><a href="/home/intro/<%= current_user.id %>">　프로필</a></li>
+          
+         <%else %>
+          <!--<li><a href="/users/sign_in">아이디 만들기</a></li>-->
+          <!--<li><a href="/users/sign_up">Sign up</a></li>-->
+        <%end%>
+        
+      </ul>
+    </div>  
+</div>
+      
+
+     
+   

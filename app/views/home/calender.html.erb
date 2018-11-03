@@ -1,0 +1,124 @@
+<!--#CRUD-->
+<head>
+  
+  <style>
+  @font-face { font-family: 'Busan'; font-style: normal; font-weight: 400; src: url('//cdn.jsdelivr.net/korean-webfonts/1/orgs/govs/busan/Busan/Busan.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/orgs/govs/busan/Busan/Busan.woff') format('woff'); } .busan * { font-family: 'Busan', sans-serif; }
+  body{
+    text-align:center;
+    background-color:#f8f0d8;
+    font-family: 'SDKukdetopokki';
+  }
+  .center{
+    text-align:center;
+  }
+  .card{
+    display: inline-block;
+    margin: 1.5%;
+    text-align: center;
+    width: 18rem;
+  }
+  .card-header{
+    font-size: 15px;
+  }
+  .card-header a{
+    color: #4CAF50;
+  }
+  .card-title{
+    font-size: 14px;
+    padding-top: 5%;
+  }
+  .card-body{
+    font-size: 13px;
+    text-align: left;
+
+  }
+  .btn-primary{
+    float: right;
+    margin: 3px;
+  }
+  .menu_button{
+    position: absolute;
+    right: 1%;
+    top: 3%;
+    margin: 10px;
+  }
+  .btn-primary{
+    text-align:center
+    display: block;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    background-color: #4CAF50;
+    border-style: none;
+  }
+  .logo_image{
+    float: left;
+    position: absolute;
+    left:2%;
+    top: 5%;
+    width: 220px;
+    height: 30px;
+  }
+  .btn:hover{
+      background-color: #ddd;
+      color: black;
+  }
+  .menu_button_1, .menu_button_2{
+    padding: 10px 25px;
+    top: 10px;
+    text-align:center
+    display: block;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    border-style: none;
+    background-color: #4CAF50;
+    border-radius: 2px;
+  }
+  .menu_button_1:hover{
+      background-color: #ddd;
+      color: black;
+  }
+  </style>
+</head>
+    <div class = "header">
+      <div class = "logo">
+        <a href = "/home/index"><%= image_tag "lionlogo.png", class:"logo_image"%></a>
+      </div>
+      <span style = "font-size: 60px; font-family: Busan">우리 지금 만나!</span>
+      <div class ="menu_button">
+        <a class = "menu_button_1" href="/home/new" data-method="get">약속 생성</a>
+        <a class = "menu_button_2" href="/">홈으로</a>  
+      </div>
+    </div>
+  <pre></pre>
+    <center>
+    <% @posts.each do |p| %>
+    
+    <!--onclick="location.href='/home/show/<%= p.id %>';"-->
+      <div class="card" style =" cursor: pointer;">
+          <h5 class="card-header"><span><a href="/home/show/<%= p.id %>"><%= p.date%>.<%= p.title%></a></span></h5>
+          <div class="card-body">
+            <h5 class="card-title">주동자 : <a href="/home/pIntro/<%= p.id %>"><%= p.user.name %></a></h5>
+            <p class="card-text">내용 : <%= p.content %></p>
+            <p class="card-join">현재참가인원: <%= p.likes.size %></p>
+            <a href="/home/destroy/<%= p.id %>" data-method="post" data-confirm="정말 삭제 하시겠습니까?" class="btn btn-primary">삭제</a>
+            <a href="/home/edit/<%= p.id %>" class="btn btn-primary">수정</a>
+          </div>
+        </div>
+      
+    <%end%>
+    
+    
+    
+    
+    
+    
+    
+      
+  </center>
+  
+  
+</div>

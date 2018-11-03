@@ -1,0 +1,104 @@
+
+<style>
+/*  .success {*/
+/*  border-color: #4CAF50;*/
+/*  color: green;*/
+/*}*/
+
+/*.success:hover {*/
+/*  background-color: #4CAF50;*/
+/*  color: white;*/
+/*}*/
+@font-face { font-family: 'SDKukdetopokki'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SDKukdetopokki.woff') format('woff'); font-weight: normal; font-style: normal; }
+.block {
+    font-family: 'SDKukdetopokki';
+    text-align:center
+    display: block;
+    width: 28%;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.block:hover {
+    font-family: 'SDKukdetopokki';
+    background-color: #ddd;
+    color: black;
+}
+.b  {
+  font-family: 'SDKukdetopokki';
+  color: green;
+}
+ .field {
+  font-family: 'SDKukdetopokki';
+}
+</style>
+<p>
+  
+  
+  
+  
+  
+  
+  
+<body style="background-color:rgb(248,240,216);">
+
+  
+</p>
+<div style="text-align:center">
+
+<p></p>
+  <div class="column">
+    <a href="/"><%=image_tag "444.jpg"%></a>
+
+  </div>
+  <p><br></p>
+    <div class = "b">
+    <h1>Drunken Lion</h1>
+    </div>
+    <br>
+</p>
+</div>
+<hr>
+<div style="text-align:center">
+
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+<p></p>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+<p>
+</p>
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+  <br>
+<hr>
+<br>
+
+<button class="block">
+  <%= f.submit "Log in", class: "block" %>
+</button>
+  <br>
+<% end %>
+<p><br></p>
+<%= render "devise/shared/links" %>
+
+
+</div>
+
+
+</body>

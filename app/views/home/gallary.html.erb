@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@font-face { font-family: 'Godo'; font-style: normal; font-weight: 400; src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff'); } @font-face { font-family: 'Godo'; font-style: normal; font-weight: 700; src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoB.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoB.woff') format('woff'); } .godo * { font-family: 'Godo', sans-serif; }
+
+* {
+    box-sizing: border-box;
+}
+
+.success {
+  border-color: #4CAF50;
+  color: green;
+}
+
+.success:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+body {
+    background-color: rgb(248,240,216);
+    margin: 0;
+    font-family: Arial;
+}
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+    opacity: 0.8; 
+    cursor: pointer; 
+}
+
+.column img:hover {
+    opacity: 1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* The expanding image container */
+.container {
+    position: relative;
+    display: none;
+}
+
+/* Expanding image text */
+#imgtext {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+}
+
+/* Closable button inside the expanded image */
+.closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+.a {
+    font-family: 'Godo';
+    color: green;
+   }
+.menu_button_2{
+    padding: 10px 25px;
+    top: 10px;
+    text-align:center
+    display: block;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    border-style: none;
+    background-color: #4CAF50;
+    border-radius: 2px;
+               }
+.menu_button{
+    position: absolute;
+    right: 1%;
+    top: 3%;
+    margin: 10px;
+            }
+            
+.images{
+    width:100%;
+    onclick : openImg(this);
+}
+</style>
+<p><br></p>
+<div class ="menu_button">
+    <a class = "menu_button_2" href="/">홈으로</a>  
+</div>
+</head>
+<body>
+
+<div style="text-align:center">
+  <h2>
+      <div class = "a">갤러리
+</h2>
+  <p>밑에 사진을 클릭해주세요</p>
+ </div>
+</div>
+
+<!-- The four columns -->
+<div class="row">
+  <div class="column">
+    <%= image_tag "sul1.jpg" , class: "images" %>
+    
+  </div>
+  <div class="column">
+     <%= image_tag "sul2.jpg" , class: "images"%>
+  </div>
+  <div class="column">
+      <%= image_tag "sul3.jpg" , class: "images"%>
+  </div>
+  <div class="column">
+  <%= image_tag "sul4.jpg" , class: "images"%>
+  </div>
+</div>
+
+<div class="container">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <img id="expandedImg" style="width:100%">
+  <div id="imgtext"></div>
+</div>
+
+<script>
+function myFunction(imgs) {
+    var expandImg = document.getElementById("expandedImg");
+    var imgText = document.getElementById("imgtext");
+    expandImg.src = imgs.src;
+    imgText.innerHTML = imgs.alt;
+    expandImg.parentElement.style.display = "block";
+}
+</script>
+
+</body>
+</html>

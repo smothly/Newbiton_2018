@@ -1,0 +1,147 @@
+
+<head>
+<style>
+body{
+  background-color: rgb(248,240,216);
+  font-family: 'SDKukdetopokki';
+}
+.logo_home{
+  margin-top:-20px;
+  margin-left: 160px;
+  position: absolute;
+  width: 150px;
+}
+.line1{
+    margin-top: 50px;
+  margin-left: 160px;
+  width: 80%;
+  height: 20px;
+}
+.title{
+  margin-top: 50px;
+  margin-left: 500px;
+}
+.text{
+  /* margin-left: 30px; */
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+.where, .eat, .alchoal, .member, .enter,.before{
+  margin-left: 200px;
+  margin-right: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+</style>
+</head>
+<body>
+    <a href="/home/index"><%=image_tag"logo_home.png" ,class:"logo_home"%></a> 
+  <div class="title">
+<p># <%= @post.id%></p>
+    
+    <h2>날짜 : <%= @post.date %></h2>
+   <h1><%= @post.title %></h1>
+   <h5><%= @post.content %></h5>
+   
+   <div class="edit_destroy" style ="padding-left: 70%;">
+       <p>작성자: <a href="/home/intro/<%= @post.id%>" data-method="post"><%= @post.user.name %></a><br><br> </p>
+   <% if current_user.id == @post.user.id %>
+       <a href="/home/edit/<%= @post.id %>">수정하기</a><br>
+   <% end %>
+   <a href="/home/destroy/<%= @post.id %>" data-method="post" data-confirm="정말 삭제하시겠습니까?">삭제하기</a>
+   <!--<a href="/">홈으로</a>--><br>
+   <a href="/home/calender">목록으로</a><br>
+    <%= "조회수: #{@post.view_count}" %> 
+   </div>
+   
+ </div>
+ 
+ <!--조회수-->
+   <div class="view_count">
+   
+    </div>
+    
+ <div class="line">
+     <%=image_tag"line.png" ,class:"line1"%>
+ </div>
+<div class="text">
+    <div class="before">
+        <h1>술먹기전에 이거부터!</h1>
+        <h2><%= @post.result5 %></h2>
+    </div>
+    <div class="line">
+     <%=image_tag"line.png" ,class:"line1"%>
+    </div>
+ <br><br><br>
+  <div class="where">
+    <div class="where1">
+   <h1>모일 대학</h1>
+   </div>
+   <div class="where2">
+   <h2><%= @post.result1 %></h2>
+   </div>
+   </div>
+   <div class="alchoal">
+      <div class="alchoal1">
+   <h1>마실 술</h1>
+   </div>
+     <div class="alchoal2">
+   <h2><%= @post.result2 %></h2>
+   </div>
+   </div>
+   <div class="eat">
+     <div class="eat1">
+   <h1>먹을 안주</h1>
+   </div>
+   <div class="eat2">
+   <h2><%= @post.result3 %></h2>
+   </div>
+   </div>
+   <div class="member">
+     <div class="member1">
+   <h1>오늘의 필참 멤버</h1>
+   </div>
+   <div class="member2">
+   <h2><%= @post.result4 %></h2>
+   
+   </div>
+   </div>
+   <br>
+    <div class="enter" style="font-size:20px">
+        <%= @post.likes.size %> 명이 참가합니다.
+            <% if current_user.is_like?(@post) %>
+            <%= link_to "참가하기 취소", post_like_path(@post), method: "post" %>
+            <%else %>
+            <%= link_to "참가하기", post_like_path(@post), method: "post" %>
+            <%end%>
+    </div>
+   </div>
+ </body>
+
+
+
+<!-- 라이브리 시티 설치 코드 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zNjI1OC8xMjc5Mw==">
+<script type="text/javascript">
+window.livereOption = {
+    refer: 'drunken-lion-godseongwon.c9users.io'
+};
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+<noscript>라이브리 댓글 작성을 위해 JavaScript를 활성화 해주세요</noscript>
+</div>
+<!-- 시티 설치 코드 끝 -->
